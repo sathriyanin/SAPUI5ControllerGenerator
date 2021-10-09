@@ -1,0 +1,46 @@
+<mvc:View controllerName="varaintManagement.VariantManagement.controller.VariantManagement" displayBlock="true" xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+	xmlns:smartTable="sap.ui.comp.smarttable" xmlns:variant="sap.ui.comp.variants">
+	<OverflowToolbar>
+		<!--add variant management-->
+		<variant:VariantManagement variantItems="{/Variants}" select="onSelect" save="onSaveAs" enabled="true" manage="onManage"
+			showExecuteOnSelection="false" showShare="false" id="Variants">
+			<variant:variantItems>
+				<variant:VariantItem text="{Name}" key="{Key}"/>
+			</variant:variantItems>
+		</variant:VariantManagement>
+		<ToolbarSpacer/>
+		<Button icon="sap-icon://action-settings" press="onPersoButtonPressed" tooltip="Columns Settings"/>
+	</OverflowToolbar>
+	<Table id="idEmployeesTable" items="{/Employees}">
+		<!--	<m:headerToolbar>
+			<m:Toolbar>
+				<Title text="Employees"/>
+			</m:Toolbar>
+		</m:headerToolbar>-->
+		<columns>
+			<Column id="employeeName">
+				<Label text="Name"/>
+			</Column>
+			<Column id="employeeCity">
+				<Label text="City"/>
+			</Column>
+			<Column id="employeeCountry">
+				<Label text="Country"/>
+			</Column>
+			<Column id="employeeReporting" hAlign="Right">
+				<Label text="Reporting"/>
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem>
+				<cells>
+					<Text text="{FirstName} {LastName}"/>
+					<Text text="{City}"/>
+					<Text text="{Country}"/>
+					<ObjectNumber number="{ReportsTo}" unit="employees"/>
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+</mvc:View>

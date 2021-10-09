@@ -1,0 +1,44 @@
+{
+    "id": "approvalform",
+    "schemaVersion": "1.1.0",
+    "name": "approvalform",
+    "revision": "1.0",
+    "type": "task",
+    "readOnly": false,
+    "content": [
+        {
+            "id": "header",
+            "type": "section",
+            "title": "Top Header",
+            "content": [
+                {
+                    "id": "firstname",
+                    "type": "string",
+                    "label": "FirstName",
+                    "readOnly": false,
+                    "value": "${context.empData.firstName}",
+                    "constraints": {
+                        "required": false
+                    }
+                }
+            ]
+        }
+    ],
+    "decisions": [
+        {
+            "id": "approve",
+            "text": "Approve",
+            "decisionType": "positive"
+        },
+        {
+            "id": "cancel",
+            "text": "Cancel",
+            "decisionType": ""
+        },
+        {
+            "id": "reject",
+            "text": "Reject",
+            "decisionType": "negative"
+        }
+    ]
+}

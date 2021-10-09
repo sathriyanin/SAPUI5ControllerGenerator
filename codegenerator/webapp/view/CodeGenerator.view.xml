@@ -1,0 +1,56 @@
+<mvc:View
+    controllerName="com.siva.app.codegenerator.controller.CodeGenerator"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}">
+					<content>
+                        <Table id="idCodeTable" class="sapUiSizeCompact " items="{/CodeGenerator}">
+                            <columns>
+                                <Column width="5em">
+                                    <Text text="Number" />
+                                </Column>
+                                <Column width="9em">
+                                    <Text text="ID"/>
+                                </Column>
+                                <Column width="6em">
+                                    <Text text="Control" />
+                                </Column>
+                                <Column width="9em">
+                                   <Text text="Variable" />
+                                </Column>
+                                <Column width="25em">
+                                    <Text text="Get Variable " />
+                                </Column>                                
+                            </columns>
+                            <items>
+                                <ColumnListItem>
+                                    <cells>
+                                       <Text text="{Number}" />
+                                       <Input value="{ID}" liveChange="onLiveIDChange" change="onIDChange"/>
+                                       <Text text="{Control}" />
+                                       <Text text="{Variable}" />  
+                                       <Text text="{GetVariable}" />                                      
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+                    </content>
+                    <footer>
+                        <OverflowToolbar>
+                            <ToolbarSpacer/>
+                            <Button text="Generate Code" type="Accept" press="onGeneratePlainText" />
+                            <Button text="Generate Controller" type="Emphasized" />
+                            <Button text="Download Excel" type="Emphasized"/>
+                            <Button text="Send Mail" type="Emphasized" />
+                        </OverflowToolbar>
+                    </footer>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
